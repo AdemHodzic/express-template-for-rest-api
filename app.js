@@ -1,6 +1,10 @@
 const express = require('express');
-const app = express();
+const path = require('path');
 
-app.use('',(req,res,next) => res.status(200).json({message: 'Hello world'}));
+const app = express();
+const defaultRoute = require('./routes/default');
+
+app.use(express.static(path.join(__dirname, 'static')));
+app.use('/', defaultRoute);
 
 module.exports = app;
