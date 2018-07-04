@@ -3,15 +3,11 @@ const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
 
 //Defining our express app
 const app = express();
 
-//Configuring mongoose
-mongoose.connect('YOUR MONGODB LOCATION GOES IN HERE', {useMongoClient: true});
 
-mongoose.Promise = global.Promise;
 
 //Configuring app
 app.use(express.static(path.join(__dirname, 'static')));
