@@ -31,8 +31,8 @@ const defaultRoute = require('./routes/default');
 const dataRoute = require('./routes/data');
 
 //Setting up routes
-app.use('/', defaultRoute);
-app.use('/data', dataRoute);
+app.use('/data', defaultRoute);
+app.use('/datas', dataRoute);
 
 
 //Handling errors
