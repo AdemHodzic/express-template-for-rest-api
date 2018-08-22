@@ -28,12 +28,11 @@ app.use((req,res,next) => {
 
 //Defining routes
 const defaultRoute = require('./routes/default');
+const dataRoute = require('./routes/data');
 
 //Setting up routes
-app.use('/', (req, res, next) => { 
-    res.status(200).json({'message':'Go to /data to get data'})
-})
-app.use('/data', defaultRoute);
+app.use('/', defaultRoute);
+app.use('/data', dataRoute);
 
 
 //Handling errors
