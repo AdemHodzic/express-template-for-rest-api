@@ -1,9 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const data = require('./quotes.json');
-
+const Quote = require('../models/quote');
 router.get('/', (req,res,next) => {
-    res.status(200).json(data)
+    Quote.find()
+      .then(data => {
+        res.send({quotes:data})          
+      }).catch((err) => {
+          res.status(500).send({message:err.message || "We had some problems with our serers!"})
+      });
 })
 
 module.exports = router;

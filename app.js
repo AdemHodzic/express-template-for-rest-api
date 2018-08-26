@@ -3,10 +3,19 @@ const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 //Defining our express app
 const app = express();
 
+//Setting up connectionn with mLab
+const url = `mongodb://${process.env.dbuser}:${process.env.dbpass}@ds161740.mlab.com:61740/jenny`
+
+mongoose.Promise = global.Promise;
+
+mongoose.connect(url, { useNewUrlParser: true })
+    .then(() => console.log('Succesufully connected to database!'))
+    .catch(err => console.log(err));
 
 
 //Configuring app
