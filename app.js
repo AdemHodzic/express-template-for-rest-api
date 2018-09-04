@@ -9,10 +9,13 @@ const mongoose = require('mongoose');
 const app = express();
 
 //Setting up connectionn with mLab
-const url = `mongodb://${process.env.dbuser}:${process.env.dbpass}@ds161740.mlab.com:61740/jenny`
+const testApi = 'mongodb://AdemHodzic:lobotomijas123@ds245022.mlab.com:45022/jenny-test';
+const url = `mongodb://${process.env.dbuser  || 'AdemHodzic'}:${process.env.dbpass || 'lobotomijas123'}@ds161740.mlab.com:61740/jenny`
 
 mongoose.Promise = global.Promise;
 
+
+//change testAPi to url when finished
 mongoose.connect(url, { useNewUrlParser: true })
     .then(() => console.log('Succesufully connected to database!'))
     .catch(err => console.log(err));
@@ -36,12 +39,10 @@ app.use((req,res,next) => {
 })
 
 //Defining routes
-const defaultRoute = require('./routes/default');
 const dataRoute = require('./routes/data');
 
 //Setting up routes
-app.use('/data', defaultRoute);
-app.use('/datas', dataRoute);
+app.use('/data', dataRoute);
 
 
 //Handling errors
