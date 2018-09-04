@@ -9,8 +9,7 @@ const mongoose = require('mongoose');
 const app = express();
 
 //Setting up connectionn with mLab
-const testApi = 'mongodb://AdemHodzic:lobotomijas123@ds245022.mlab.com:45022/jenny-test';
-const url = `mongodb://${process.env.dbuser  || 'AdemHodzic'}:${process.env.dbpass || 'lobotomijas123'}@ds161740.mlab.com:61740/jenny`
+const url = `mongodb://${process.env.dbuser}:${process.env.dbpass}@ds161740.mlab.com:61740/jenny`
 
 mongoose.Promise = global.Promise;
 
