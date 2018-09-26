@@ -1,17 +1,13 @@
 //importing dependencies
 const express = require('express');
 const path = require('path');
-const morgan = require('morgan');
 const bodyParser = require('body-parser');
 
 //Defining our express app
 const app = express();
 
-
-
 //Configuring app
 app.use(express.static(path.join(__dirname, 'static')));
-app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
